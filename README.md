@@ -5,3 +5,4 @@ Esses arquivos são apenas os arquivos criados no curso, sem as video-aulas, voc
 
 ## Lista de aulas
 * BT01 Intro, Notes & Assets
+* BT02 Game Design Document (GDD)
