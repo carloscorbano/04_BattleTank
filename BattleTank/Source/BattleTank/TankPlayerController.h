@@ -24,4 +24,7 @@ protected:
 private:
 	//Start the tank moving the barrel so that a shot would hit where
 	void AimTowardsCrosshair();
+
+	//Raycast towards and return if hit something
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
 };
