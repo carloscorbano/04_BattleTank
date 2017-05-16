@@ -27,4 +27,13 @@ private:
 
 	//Raycast towards and return if hit something
 	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+
+	// The porcentage of the screen that anchors the crosshair
+	UPROPERTY(EditAnywhere)
+	float CrossHairXLocation = 0.5f;
+
+	UPROPERTY(EditAnywhere)
+	float CrossHairYLocation = 0.3333f;
+
+	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 };
