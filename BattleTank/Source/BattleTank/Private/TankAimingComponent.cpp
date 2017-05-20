@@ -33,8 +33,8 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 		HitLocation,
 		LaunchSpeed,
 		false,
-		0,
-		0,
+		0.0f,
+		0.0f,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);
 
@@ -48,11 +48,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	}
 	else
 	{
-		auto Time = GetWorld()->GetTimeSeconds();
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found"), Time);
+		//auto Time = GetWorld()->GetTimeSeconds();
+		//UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found"), Time);
 	}
-
-	// If no solution found do nothing
 }
 
 //MoveBarrel()
@@ -63,6 +61,6 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto AimAsRotator = AimDirection.Rotation();
 	auto DeltaRotator = AimAsRotator - BarrelRotator;
 
-	Barrel->Elevate(5.0f); // TODO remove magic number
+	Barrel->Elevate(DeltaRotator.Pitch);
 }
 
