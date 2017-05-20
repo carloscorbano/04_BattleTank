@@ -22,6 +22,10 @@ protected:
 	virtual void BeginPlay() override;
 
 private:
+	//Distance that linetrace reachs - 10 km
+	UPROPERTY(EditAnywhere)
+	float LineTraceDistance = 1000000.0f;
+
 	//Start the tank moving the barrel so that a shot would hit where
 	void AimTowardsCrosshair();
 
@@ -35,5 +39,9 @@ private:
 	UPROPERTY(EditAnywhere)
 	float CrossHairYLocation = 0.3333f;
 
+	//Return the value of LookDirection
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
+
+	//Return the value of the collision pointer of the aim.
+	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
 };
