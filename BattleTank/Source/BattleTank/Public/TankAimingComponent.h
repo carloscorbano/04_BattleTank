@@ -7,8 +7,6 @@
 
 // Forward decoration
 class UTankBarrel;
-class UTankTurret;
-
 
 // Hold barrel's properties and elevate method
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
