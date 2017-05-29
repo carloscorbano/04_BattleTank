@@ -5,7 +5,7 @@
 #include "AIController.h"
 #include "TankAIController.generated.h" //Must be left in the last include
 
-class ATank;
+class UTankAimingComponent;
 /**
  * 
  */

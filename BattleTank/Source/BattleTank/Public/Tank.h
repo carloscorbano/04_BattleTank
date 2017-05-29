@@ -6,7 +6,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel; // Forward Decoration
-class UTankAimingComponent;
 class AProjectile;
 
 UCLASS()
@@ -20,14 +19,8 @@ public:
 
 	virtual void BeginPlay() override;
 
-	void AimAt(FVector HitLocation);
-
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
-
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:	
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")

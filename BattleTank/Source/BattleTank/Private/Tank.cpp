@@ -1,9 +1,8 @@
 // TrySoftAngles 2017
 
 #include "BattleTank.h"
-#include "Tank.h"
-#include "TankAimingComponent.h"
 #include "TankBarrel.h"
+#include "Tank.h"
 #include "Projectile.h"
 
 // Sets default values
@@ -16,13 +15,6 @@ ATank::ATank()
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
-}
-
-void ATank::AimAt(FVector HitLocation)
-{
-	if (!ensure(TankAimingComponent)) { return; }
-	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 }
 
 void ATank::Fire()
