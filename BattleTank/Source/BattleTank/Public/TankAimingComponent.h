@@ -36,9 +36,16 @@ public:
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
-	EFiringState FiringStatus = EFiringState::Locked;
+	EFiringState FiringStatus = EFiringState::Reloading;
 
 private:	
+	// Sets default values for this component's properties
+	UTankAimingComponent();
+
+	virtual void BeginPlay() override;
+
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
@@ -47,15 +54,11 @@ private:
 
 	double LastFireTime = 0;
 
-	// Sets default values for this component's properties
-	UTankAimingComponent();
-
 	UTankBarrel* Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
 	void MoveBarrelTowards(FVector AimDirection);
 
-	//TODO Reafctor
 	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 4000.0f;
 };
