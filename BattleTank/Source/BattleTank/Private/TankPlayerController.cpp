@@ -33,11 +33,6 @@ void ATankPlayerController::OnTankDeath()
 	StartSpectatingOnly();
 }
 
-void ATankPlayerController::StartSpectatingOnly()
-{
-	// TODO Handle Spectating
-}
-
 void ATankPlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -94,7 +89,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 	FHitResult HitResult;
 	FVector StartLocation = PlayerCameraManager->GetCameraLocation();
 	FVector EndLocation = StartLocation + (LookDirection * LineTraceDistance);
-	ECollisionChannel CollisionChannel = ECC_Visibility;
+	ECollisionChannel CollisionChannel = ECC_Camera;
 
 	if (GetWorld()->LineTraceSingleByChannel(
 		HitResult,
