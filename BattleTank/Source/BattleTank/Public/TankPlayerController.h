@@ -13,9 +13,6 @@ UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
-public:
-	virtual void Tick(float DeltaTime) override;
 
 protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
@@ -24,6 +21,9 @@ protected:
 private:
 	virtual void BeginPlay() override;
 
+	virtual void SetPawn(APawn* InPawn) override;
+
+	virtual void Tick(float DeltaTime) override;
 	//Start the tank moving the barrel so that a shot would hit where
 	void AimTowardsCrosshair();
 
@@ -46,4 +46,9 @@ private:
 
 	//Return the value of the collision pointer of the aim.
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	UFUNCTION()
+	void OnTankDeath();
+
+	void StartSpectatingOnly();
 };
