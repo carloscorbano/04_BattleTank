@@ -3,6 +3,11 @@
 #include "BattleTank.h"
 #include "Tank.h"
 
+float ATank::GetHealthPercent() const
+{
+	return (float)CurrentHealth / (float)MaxHealth;
+}
+
 // Sets default values
 ATank::ATank()
 {
@@ -24,3 +29,4 @@ float ATank::TakeDamage(float DamageAmount, struct FDamageEvent const & DamageEv
 
 	return DamageToApply;
 }
+
